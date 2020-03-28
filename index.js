@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const shortid = require('shortid'); // Tạp chuỗi ngẫu nhiên ID
 const port = 3000;
 
 // Lowdb
@@ -46,8 +47,13 @@ app.get('/create', (req,res) => {
 
 app.post('/create', (req,res) => {
     let { name, age } = req.body;
-    db.get('users').push({name, age: parseInt(age) }).write();
+    db.get('users').push({ id: shortid.generate(), name, age: parseInt(age) }).write();
     res.redirect('/index');
+});
+
+app.get('/user/:id', (req,res) => {
+    let user = db.get('users').find({ id: req.params.id }).value();
+    res.render('user', { user });
 });
 
 app.get('/', (req, res) => res.send('<h1>Hello World!</h1>'));

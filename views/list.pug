@@ -5,6 +5,8 @@ html
         h1 List User
         ul
             each item in list
-                li= item.name
+                li
+                    span= item.name
+                    a(href=`/user/${item.id}`) Xem
         a(href="/getSearch") Tim kiem
         a(href="/create") Tao moi
