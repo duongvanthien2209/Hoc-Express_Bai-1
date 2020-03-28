@@ -1,0 +1,15 @@
+html
+  head
+    title= title
+  body
+    h1 Hello #{name}
+    table
+        tr 
+            th Tên
+            th Tuổi
+        each item in list
+            tr
+                td= item.name
+                td= item.age
+
+
