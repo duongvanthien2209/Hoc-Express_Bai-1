@@ -1,19 +1,11 @@
 html
   head
-    title= title
+    title Search
   body
-    h1 User List
-    form(action='/search', method='get')
+    h1 Tim kiem
+    form(action='/search' method='get')
         label Nhap ten:
-        input(type='text', placeholder='Nhap ten cua ban', name='name')
-        input(type='submit', value='Tìm')
-    table
-        tr 
-            th Tên
-            th Tuổi
-        each item in list
-            tr
-                td= item.name
-                td= item.age
+        input(type='text' placeholder='Nhap ten cua ban' name='name')
+        input(type='submit' value='Tìm')
 
 
