@@ -2,7 +2,11 @@ html
   head
     title= title
   body
-    h1 Hello #{name}
+    h1 User List
+    form(action='/search', method='get')
+        label Nhap ten:
+        input(type='text', placeholder='Nhap ten cua ban', name='name')
+        input(type='submit', value='Tìm')
     table
         tr 
             th Tên
